@@ -952,6 +952,7 @@ const checkValue = () => {
     hideElements();
 }
 
+// function is to hide certain input elements (buttons, text fields).
 const hideElements = () => {
     pinInputObj.style.display = 'none';
     pinInputButton.style.display = 'none';
