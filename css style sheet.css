@@ -1,0 +1,38 @@
+
+body {
+    background-color: black;
+    text-align: center;
+    color: rgb(182, 216, 182);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24pt;
+    font-style: italic;
+}
+h1 {
+      font: bold 24pt;
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
+}
+button {
+    background-color: red;
+    color:rgb(182, 216, 182);   
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: normal;
+}
+p {
+    font-style: normal;
+    border-style: groove;
+}
+section {
+    font: bold 24pt;
+    color: rgb(223, 107, 107);
+    font-family: 'Courier New', Courier, monospace;
+}
+input {
+    background-color: red;
+    font: bold;
+    font-size: 28px;
+    text-align: center;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}

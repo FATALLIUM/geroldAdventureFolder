@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Gerold's Haunted Adventure</title>
+		<style></style>
+		<link rel = "stylesheet" href = "css style sheet.css" />
+	</head>
+	<body onload = "initialize(1);">
+		<h1>Gerold's Spooky Adventure</h1>
+		<section>The Beginning</section>
+		<div></div>
+		<p id = "storyP"></p>
+		<p id = "npcDialogueP"></p>
+		<button onclick = "chooseDecision(decisionIn1)", id = "decisionB1";>...</button>
+		<button onclick = "chooseDecision(decisionIn2)", id = "decisionB2";>...</button>
+		<button onclick = "chooseDecision(decisionIn3)", id = "decisionB3";>...</button>
+		<button onclick = "displayStory(storyProgress)">Continue</button>
+		<br></br>
+		<br></br>
+		<center><input type = "text" id = "pinInput" maxlength = "4" size = "20"/>
+		<input type = "button" id = "inputButton" onclick = "checkValue();" value = "Enter"/></center>
+		<button style="bottom: 0;", onclick="reset();">RESET</button>
+		<button onclick = "clicked();", id = "hiddenWord", style="color: green; bottom: 0; right: 0;",>A green word</button>
+		<script src = "geroldAdventure.js">
+        </script>
+	</body>
+</html>
