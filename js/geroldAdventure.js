@@ -9,6 +9,9 @@
     // decision buttons initialize
     let decisionButton1, decisionButton2, decisionButton3;
 
+    // images
+    const imageOut = document.getElementById("image");
+
     // decision arguments initialize
     let decisionIn1, decisionIn2, decisionIn3;
 
@@ -155,6 +158,9 @@ function initialize(room) {
     decisionIn2 = "";
     decisionIn3 = "";
    
+    // hide image
+    imageOut.style.display = 'none';
+
     // assigning story elements
     storySub = 0;
     item = "nothing";
@@ -622,6 +628,7 @@ function resetDecisions() {
     this is where the majority of the text is printed out using a massive nested switch statement.
 */
 function displayStory(progress) {
+    changeImage(storyProgress);
     if (gameOver) {window.location.href = "geroldAdventure_JiaminZeng.html";}
     else {
         hideElements();
@@ -873,6 +880,7 @@ function displayStory(progress) {
                         break;        
                     default:
                         story = "THE END.";
+                        imageOut.src = "ending1";
                         gameOver = true;
                         break;                    
                 }
@@ -968,4 +976,35 @@ function reset() {
 const clicked = () => {
     hideElements();
     storySub++;
+}
+
+const changeImage = (progress) => {
+    switch (progress) {
+        case "bathroom":
+            imageOut.style.display = 'none';
+            break;
+        case "bathroomHallway":
+            imageOut.style.display = 'block';
+            imageOut.src = "bathroomHallway";
+            break;
+        case "livingRoom":
+            imageOut.style.display = 'block';
+            imageOut.src = "livingRoom";
+            break;
+        case "masterBedroom":
+            imageOut.style.display = 'block';
+            imageOut.src = "bedroom";
+            break;
+        case "kitchen":
+            imageOut.style.display = 'block';
+            imageOut.src = "kitchen";
+            break;
+        case "exit":
+            imageOut.style.display = 'block';
+            imageOut.src = "ending0";
+            break;
+        default:
+            imageOut.style.display = 'none';
+            break;                        
+    }
 }
