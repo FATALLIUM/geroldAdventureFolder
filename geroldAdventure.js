@@ -880,7 +880,7 @@ function displayStory(progress) {
                         break;        
                     default:
                         story = "THE END.";
-                        imageOut.src = "ending1";
+                        imageOut.src = "ending1.png";
                         gameOver = true;
                         break;                    
                 }
@@ -985,23 +985,23 @@ const changeImage = (progress) => {
             break;
         case "bathroomHallway":
             imageOut.style.display = 'block';
-            imageOut.src = "bathroomHallway";
+            imageOut.src = "bathroomHallway.jpg";
             break;
         case "livingRoom":
             imageOut.style.display = 'block';
-            imageOut.src = "livingRoom";
+            imageOut.src = "livingRoom.jng";
             break;
         case "masterBedroom":
             imageOut.style.display = 'block';
-            imageOut.src = "bedroom";
+            imageOut.src = "bedroom.jpg";
             break;
         case "kitchen":
             imageOut.style.display = 'block';
-            imageOut.src = "kitchen";
+            imageOut.src = "kitchen.jpg";
             break;
         case "exit":
             imageOut.style.display = 'block';
-            imageOut.src = "ending0";
+            imageOut.src = "ending0.png";
             break;
         default:
             imageOut.style.display = 'none';
