@@ -646,7 +646,7 @@ function displayStory(progress) {
                         setUpDecisions("axe");
                         break;
                     case 2:
-                        story = "Because Gerold has an axe, he uses it to break the dooe. Unfortunately, Gerold lost the axe in this process.";
+                        story = "Because Gerold has an axe, he uses it to break the door. Unfortunately, Gerold lost the axe in this process.";
                         storySub++;
                        
                         item = "nothing";
@@ -989,7 +989,7 @@ const changeImage = (progress) => {
             break;
         case "livingRoom":
             imageOut.style.display = 'block';
-            imageOut.src = "livingRoom.jng";
+            imageOut.src = "livingRoom.jpg";
             break;
         case "masterBedroom":
             imageOut.style.display = 'block';
