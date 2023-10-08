@@ -220,7 +220,7 @@ function chooseDecision(decision) {
             break;
         case "talkToShadowMan":
             resetDecisions();
-            shadowMan.displayNpcDialogue(storyProgress, shadowMan.name);
+            shadowMan.displayNpcDialogue("bathroom", shadowMan.name);
             break;
         case "ignoreShadowMan":
             story = "Good thinking... mysterious, shadowy men shouldn't be trusted with...";
