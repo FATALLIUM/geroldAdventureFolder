@@ -280,7 +280,7 @@ function chooseDecision(decision) {
             break;        
         case "botherShadowMan":
             story = "Gerold decides to bother the shadow man.";
-            shadowMan.displayNpcDialogue(shadowMan.name);
+            shadowMan.displayNpcDialogue("bathroom", shadowMan.name);
             break;
         case "useGem":
             story = "After much contemplation, Gerold finally uses the shiny gem and places it neatly inside the groove.";
