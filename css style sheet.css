@@ -36,3 +36,8 @@ input {
     color: white;
     font-family: 'Courier New', Courier, monospace;
 }
+img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
