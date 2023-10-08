@@ -58,7 +58,11 @@ class NPC {
                                 npcDialogue = "Shadow Man: ............";
                                 story = "Gerold...! Just go to the living room! Please!!!";
                                 shadowMan.talk++;
-                                break;  
+                                break;
+                            case 3:
+                                story = "Multiple black spikes pierce through Gerold's flesh, mutilating him. Gerold dies.";
+                                gameOver = true;
+                                reak;      
                             default:
                                 gameOver = true;
                                 break;      
@@ -85,6 +89,10 @@ class NPC {
                                 story = "Oh, no! Gerold!!! You have to stop bothering him...!";
                                 shadowMan.talk++;
                                 break;  
+                            case 4:
+                                story = "The shadow man suplexes Gerold and then body-slams him to the tenth dimension.";
+                                gameOver = true;
+                                break;    
                             default:
                                 gameOver = true;
                                 break;      
@@ -237,7 +245,7 @@ function chooseDecision(decision) {
             story = "It's a wooden table. Two stacks of yellowed documents, four blue fountain pens, and sixteen thimbles sit on it.\nA house centipede is nestled in-between the documents.";
             break;
         case "checkDesk":
-            if (puzzle !== 1) {
+            if (puzzle < 1) {
                 story = "A wooden desk. Cobwebs and dust bunnies are flouncing about. There's a weathered box with a PIN.";
                 puzzleSolve("pin");
             }
@@ -251,9 +259,9 @@ function chooseDecision(decision) {
             }
             else {
                 story = "Gerold wonders if he should go in. It's the master bedroom, after all. The master of beds...";
-                storySub++
+                setUpDecisions("headToMasterBedroom11");
             }
-            break;
+            break;   
         case "bathroomHallway":
             if (item === "a gem") {
                 story = "Gerold is back in the hallway. Though, there's nothing interesting here, so Gerold wanders back into the living room.";
@@ -276,7 +284,7 @@ function chooseDecision(decision) {
             break;
         case "don'tPickUp!Gem":
             story = "For some reason, Gerold decides to leave the gem on the floor, as if hoping for someone else to pick it up for him.";
-            setUpDecisions("bathroomHallway");
+            setUpDecisions("bathroomHallway1");
             break;        
         case "botherShadowMan":
             story = "Gerold decides to bother the shadow man.";
@@ -288,7 +296,7 @@ function chooseDecision(decision) {
             break;
         case "stareAtDoor":
             story = "For some reason, Gerold decides to admire the rancid spider eggs that adorn the door instead of progressing the story.";
-            setUpDecisions("bathroomHallway1");
+            setUpDecisions("livingRoomPuzzle");
             break;
        
         // PART TWO
@@ -354,7 +362,7 @@ function chooseDecision(decision) {
         case "checkBookcase":
             story = "An old bookcase full of weathered tomes, manuscripts, and charred documents. The words \'DO NOT FORGET\' is scribbled upon the wood.";
             break;
-        case "bathroomHallway1":
+        case "bathroomHallway2":
             story = "Gerold is in the bathroom hallway once more. The shadow man is still here, as well as the mysterious door.";
             setUpDecisions("bathroomHallway3");
             break;
@@ -519,6 +527,13 @@ function setUpDecisions(decisions) {
             decisionIn1 = "deatDoor1";
             decisionIn2 = "shadowManTalk1";
             break;
+        case "headToMasterBedroom11":
+            decisionButton1 = "Use gem";
+            decisionButton2 = "Stare at door";
+
+            decisionIn1 = "useGem";
+            decisionIn2 = "stareAtDoor";
+            break;     
        
         // PART TWO
         case "masterBedroomPuzzle":
@@ -548,7 +563,7 @@ function setUpDecisions(decisions) {
             decisionButton2 = "Daydream";
             decisionButton3 = "Kitchen door";
            
-            decisionIn1 = "bathroomHallway1";
+            decisionIn1 = "bathroomHallway2";
             decisionIn2 = "daydream";    
             decisionIn3 = "kitchenDoor";
             break;    
@@ -718,17 +733,19 @@ function displayStory(progress) {
                         setUpDecisions("livingRoomPuzzle");
                         break;
                     case 4:
-                        story = "The gem from before is still there. And... so is the shadow-like man.";
-                        setUpDecisions("bathroomHallway1");
+                        if (item === "a gem") {
+                            story = "Hmm... hmm."
+                            setUpDecisions("livingRoomPuzzle");
+                        }
+                        else {
+                            story = "The gem from before is still there. And... so is the shadow-like man.";
+                            setUpDecisions("bathroomHallway1");
+                        }
                         break;
                     case 5:
-                        story = "Hmm...";
-                        setUpDecisions("livingRoomPuzzle");
-                        break;
-                    case 6:
-                        storySub++;
                         story = "Gerold walks into the master bedroom, his heart suplexing itself against his ribcage.";
                         item = "nothing";
+                        storySub++;
                         break;    
                     default:
                         window.location.href = "geroldAdventure1_JiaminZeng.html";
