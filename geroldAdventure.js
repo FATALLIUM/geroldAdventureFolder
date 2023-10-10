@@ -1,4 +1,4 @@
-    // setting up dialogue buttons, elements, display
+    // Setting up dialogue buttons, elements, and display objects.
     const storyOutput = document.getElementById("storyP");
     const npcDialogueOut = document.getElementById("npcDialogueP");
 
@@ -6,27 +6,27 @@
     const decisionButtonOut2 = document.getElementById("decisionB2");
     const decisionButtonOut3 = document.getElementById("decisionB3");
 
-    // decision buttons initialize
+    // Initializing decision buttons' innerHTML.
     let decisionButton1, decisionButton2, decisionButton3;
 
-    // images
+    // Setting up image object.
     const imageOut = document.getElementById("image");
 
-    // decision arguments initialize
+    // Initializing decision arguments.
     let decisionIn1, decisionIn2, decisionIn3;
 
-    // form PIN
+    // Initializing form PIN and hiddenButton objects.
     const pinInputObj = document.getElementById("pinInput");
     const pinInputButton = document.getElementById("inputButton");
-
+    
     const hiddenWordObj = document.getElementById("hiddenWord");
    
-    // story elements initialize
+    // Initializing story elements.
     let storySub, item, npcDialogue, story, storyProgress, gameOver;
 
 /* NPC class with instance variables name and talk.
    talk is how the NPC's dialogue will be progressed.
-   name is self-explanatory.
+   name is self-explanatory :D
 */
 class NPC {
     constructor(name, talk) {
@@ -36,7 +36,7 @@ class NPC {
 
     /*  @param progress -> argument should be the global var storyProgress.
         @param npcNum -> argument should be an object NPC's property: name.
-        the function changes the value of global var npcDialogue, global var story, and increments the NPC's talk property by 1.
+        The function changes the value of global var npcDialogue, global var story, and increments the NPC's talk property by 1.
     */
     displayNpcDialogue(progress, npcNum) {
         switch (npcNum) {
@@ -150,12 +150,14 @@ class NPC {
     }
 }    
 
-    // set up NPCs with new obj
+    // Initializing and assigning NPC objects.
     const shadowMan = new NPC("shadowMan", 0);
     const cheeseMan = new NPC("cheeseMan", 0);
 
-// assigns respective value to each variable initialized before this function if needed.
-function initialize(room) {
+/* This function assigns a respective value to each variable initialized before this function.
+    Called when the body HTML loads.
+*/
+const initialize = (room) => {
     // decision buttons' innerHTML
     decisionButton1 = "...";
     decisionButton2 = "...";
@@ -183,10 +185,11 @@ function initialize(room) {
     puzzle = 0;
 }
 
-/* @param decision -> what the player chooses
-    interacts with surroundings and affects story outcomes.
+/* @param decision -> what the player chooses. This is passed into a large switch statement.
+    This function interacts with surroundings and affects story outcomes.
+    Called when there is a decision.
 */
-function chooseDecision(decision) {
+const chooseDecision = (decision) => {
     resetDecisions();
     switch (decision) {
         // PART ONE
@@ -443,8 +446,10 @@ function chooseDecision(decision) {
 }
 
 /* @param decisions -> setting up buttons and innerHTML using an argument and switch statement.
+    This function sets up the argument paramater for chooseDecision(decision) as well as decisionButtonOut(1-3);
+    Called when there is a decision.
 */
-function setUpDecisions(decisions) {
+const setUpDecisions = (decisions) => {
     switch (decisions) {
         // PART ONE
         case "axe":
@@ -627,8 +632,10 @@ function setUpDecisions(decisions) {
     display();
 }
 
-//
-function resetDecisions() {
+/* This function resets the innerHTML of all decision buttons, its arguments, and global var npcDialogue.
+    Called in the beginning of chooseDecision(decision) to prevent overriting decision inputs.
+*/
+const resetDecisions = () => {
     decisionIn1 = "";
     decisionIn2 = "";
     decisionIn3 = "";
@@ -639,10 +646,10 @@ function resetDecisions() {
     npcDialogue = "";
 }
 
-/* @param progress -> global var storyProgress
-    this is where the majority of the text is printed out using a massive nested switch statement.
+/* @param progress -> global var storyProgress.
+    This is where the majority of the text is printed out using a massive nested switch statement.
 */
-function displayStory(progress) {
+const displayStory = (progress) => {
     changeImage(storyProgress);
     if (gameOver) {window.location.href = "geroldAdventure_JiaminZeng.html";}
     else {
@@ -909,7 +916,9 @@ function displayStory(progress) {
     }
 }
 
-// changes the value of buttons and output.
+/* This function changes the value of buttons and output.
+Called in (nearly) all display functions.
+*/
 const display = () => {    
     npcDialogueOut.innerHTML = npcDialogue;
     storyOutput.innerHTML = story;
@@ -921,8 +930,10 @@ const display = () => {
 
 /* @param puzzleIn -> parameter specifies what sort of puzzle is being solved, e.g. "pin" for PIN puzzles and
    hides the form (text field and button) of it.
+   The method's function is to hide elements.
+   Called when a puzzle is encountered.
 */
-function puzzleSolve (puzzleIn) {
+const puzzleSolve = (puzzleIn) => {
     switch (puzzleIn) {
         case "pin":
             pinInputObj.style.display  = 'block';
@@ -977,7 +988,9 @@ const checkValue = () => {
     hideElements();
 }
 
-// function is to hide certain input elements (buttons, text fields).
+/* function is to hide certain input elements (buttons, text fields).
+    Called when the player clicks the 'Continue' button. 
+*/
 const hideElements = () => {
     pinInputObj.style.display = 'none';
     pinInputButton.style.display = 'none';
@@ -986,15 +999,25 @@ const hideElements = () => {
     hiddenWordObj.style.display = 'none';
 }
 
-function reset() {
+/* function navigates to the beginning HTML page where the story started at.
+    Called when the player clicks the 'Reset' button.
+*/
+const reset = () => {
     window.location.href = "geroldAdventure_JiaminZeng.html";
 }
 
+/* The function also calls hideElements() and increments global var storySub by 1.
+    Called when the user clicks on a hidden button.
+*/
 const clicked = () => {
     hideElements();
     storySub++;
 }
 
+/* @param progress -> passes in the global var storyProgress
+    progress is passed into a switch statement whose output changes the img src.
+    Called every time the user clicks 'Continue'.
+*/
 const changeImage = (progress) => {
     switch (progress) {
         case "bathroom":
