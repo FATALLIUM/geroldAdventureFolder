@@ -947,8 +947,8 @@ const puzzleSolve = (puzzleIn) => {
 }
 
 /* function is called when the 'Enter' button of type-PIN puzzle forms is clicked.
-   first checks what part the player is by looking at the global var storyProgress.
-   then, check whether the value in the text field is correct.
+   It first checks what part the player is by looking at the global var storyProgress.
+   Then, check whether the value in the text field is correct.
 */
 const checkValue = () => {
     switch (storyProgress) {
