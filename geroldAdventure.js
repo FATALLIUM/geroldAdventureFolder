@@ -785,7 +785,7 @@ function displayStory(progress) {
                         }
                         else {
                             story = "Gerold is working hard...";
-                            setUpDecisions("investigateMB1");
+                            setUpDecisions("masterBedroomPuzzle");
                         }
                         break;
                     case 6:
